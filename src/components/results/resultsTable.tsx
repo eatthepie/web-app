@@ -1,5 +1,4 @@
 import { FC } from 'react'
-import Link from 'next/link'
 import { formatEther } from 'viem'
 
 import { StatusBadge } from '@/components/results'
@@ -72,7 +71,7 @@ const ResultsTable: FC<{
                 <td className='px-6 py-4 whitespace-nowrap text-right text-sm font-medium'>
                   <div
                     onClick={() => onGameClick(game.gameId)}
-                    className='text-gray-600 hover:text-gray-900'
+                    className='text-gray-600 hover:text-gray-900 cursor-pointer'
                   >
                     <svg
                       className='w-5 h-5 inline-block'

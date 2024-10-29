@@ -38,7 +38,6 @@ const useClickOutside = (ref: React.RefObject<HTMLElement>, handler: () => void)
 const useDropdownActions = (purchaseTicket: () => void | Promise<void>) => {
   const router = useRouter()
   const { disconnect } = useDisconnect()
-  const { address } = useAccount()
 
   return useCallback(
     (
