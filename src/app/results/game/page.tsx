@@ -1,6 +1,7 @@
 'use client'
 
 import React from 'react'
+import { useSearchParams } from 'next/navigation'
 import { motion } from 'framer-motion'
 import { formatEther } from 'viem'
 
@@ -288,7 +289,9 @@ const GameInformationSection = ({ gameInfo }: { gameInfo: GameDetailedInfo }) =>
   )
 }
 
-const ResultsRoundPage = ({ params: { round } }: { params: { round: bigint } }) => {
+const GameDetailsPage = () => {
+  const searchParams = useSearchParams()
+  const round = BigInt(searchParams.get('round') || '0')
   const { showToast } = useToast()
   const { gameInfo, isLoading, isError } = useLotteryGameInfo(round)
 
@@ -320,4 +323,4 @@ const ResultsRoundPage = ({ params: { round } }: { params: { round: bigint } }) 
   )
 }
 
-export default ResultsRoundPage
+export default GameDetailsPage

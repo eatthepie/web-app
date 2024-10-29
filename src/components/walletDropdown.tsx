@@ -63,7 +63,7 @@ const useDropdownActions = (purchaseTicket: () => void | Promise<void>) => {
         icon: <Prize />,
         text: 'Did I Win',
         action: () => {
-          router.push(`/claim/${address}`)
+          router.push(`/claim`)
           closeDropdown()
         },
       },
@@ -77,7 +77,7 @@ const useDropdownActions = (purchaseTicket: () => void | Promise<void>) => {
         },
       },
     ],
-    [purchaseTicket, router, address, disconnect],
+    [purchaseTicket, router, disconnect],
   )
 }
 

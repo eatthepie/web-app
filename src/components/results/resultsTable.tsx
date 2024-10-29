@@ -12,7 +12,8 @@ const ResultsTable: FC<{
     numberOfWinners: bigint
     winningNumbers: bigint[]
   }[]
-}> = ({ games }) => {
+  onGameClick: (round: bigint) => void
+}> = ({ games, onGameClick }) => {
   const formatPrizePool = (prizePool: bigint) => {
     return `${parseFloat(formatEther(prizePool)).toFixed(1)} ETH`
   }
@@ -69,8 +70,8 @@ const ResultsTable: FC<{
                     : '-'}
                 </td>
                 <td className='px-6 py-4 whitespace-nowrap text-right text-sm font-medium'>
-                  <Link
-                    href={`/results/${game.gameId.toString()}`}
+                  <div
+                    onClick={() => onGameClick(game.gameId)}
                     className='text-gray-600 hover:text-gray-900'
                   >
                     <svg
@@ -87,7 +88,7 @@ const ResultsTable: FC<{
                         d='M9 5l7 7-7 7'
                       />
                     </svg>
-                  </Link>
+                  </div>
                 </td>
               </tr>
             ))}
